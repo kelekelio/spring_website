@@ -52,14 +52,14 @@
                         <label class="custom-control-label" for="customCheck">Zapamiętaj mnie</label>
                       </div>
                     </div>
-                    <a href="index.html" class="btn btn-primary btn-user btn-block">
+                    <a href="../index.jsp" class="btn btn-primary btn-user btn-block">
                       Login
                     </a>
                     <hr>
                   
                   </form>
                   <div class="text-center">
-                    <a class="small" href="register.html">Utwórz konto!</a>
+                    <a class="small" href="register.jsp">Utwórz konto!</a>
                   </div>
                 </div>
               </div>

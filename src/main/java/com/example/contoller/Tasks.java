@@ -5,12 +5,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * @author Grzegorz Nowakowski
+ */
 @Controller
-public class MainController {
+public class Tasks {
 
-    @RequestMapping(value = {"/", "index"}, method = RequestMethod.GET )
+    @RequestMapping(value = {"/Tasks"}, method = RequestMethod.GET )
     public String index(Model model) {
-        return "index";
+        return "tasks";
     }
 
 }
