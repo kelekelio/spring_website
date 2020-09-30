@@ -91,9 +91,8 @@
 
 
  <div class="col-lg-12">
-                <a href='' class="btn btn-warning btn-block"><i
-                        class="fas fa-exclamation-triangle"></i><strong> Dodaj
-                    taska</strong></a>
+                <a href='<c:url value="/addTask"/>' class="btn btn-warning btn-block"><i
+                        class="fas fa-exclamation-triangle"></i><strong> Dodaj taska</strong></a>
                 </div>
                 <br>
 
@@ -151,6 +150,15 @@
 
 
                 <div class="col-lg-10">
+<c:forEach items="${items}" var="item">
+    <div class="card mb-4 py-3 border-left-primary">
+        <div class="card-body">
+            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">${item.person.name}
+                | <strong>Dodano:</strong> 2020-07-09 | <strong>Deadline:</strong> 2020-07-09</div>
+            ${item.description}
+        </div>
+    </div>
+</c:forEach>
 
                     <div class="card mb-4 py-3 border-left-primary">
                         <div class="card-body">

@@ -143,7 +143,7 @@
 
         <!-- Modal Header -->
         <div class="modal-header">
-            <h4 class="modal-title">Imię Nazwisko</h4>
+            <h4 class="modal-title">${persons.name} ${persons.lastName}</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
 
@@ -230,9 +230,7 @@
         <!-- Modal footer -->
         <div class="modal-footer">
            <a href='<c:url value="/editPerson/${persons.id}"/>'>
-           <input type="submit" class="btn
-           btn-danger pull-left"
-           value="Poprawiam"/></a>
+           <input type="submit" class="btn btn-danger pull-left" value="Poprawiam"/></a>
         </div>
 
         </div>

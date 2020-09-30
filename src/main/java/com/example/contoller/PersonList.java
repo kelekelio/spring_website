@@ -41,33 +41,6 @@ public class PersonList {
         return new RedirectView("/personList");
     }
 
-/*
-    @RequestMapping(value = {"/editPerson2"}, method = RequestMethod.POST )
-    public RedirectView postEditPerson(@ModelAttribute Person editPerson) {
-
-
-        System.out.println(editPerson.getName());
-        System.out.println(editPerson.getId());
-        editPerson.setId(2L);
-        System.out.println(editPerson.getId());
-        personRepository.save(editPerson);
-        return new RedirectView("/editPerson/2");
-    }
-
-
-
-    @RequestMapping(value = {"/editPerson"}, method = RequestMethod.POST )
-    public String postEditPerson(@ModelAttribute Person editPerson, @RequestParam("id") Long id) {
-
-        editPerson.setId(id);
-        personRepository.save(editPerson);
-        return "/personList";
-    }
-
-     */
-
-
-
     @RequestMapping(value = {"/editPerson/{id}"}, method = RequestMethod.GET )
     public String editPerson(Model model, @PathVariable("id") Long id) {
 

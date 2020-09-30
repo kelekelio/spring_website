@@ -1,6 +1,8 @@
 package com.example.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author Grzegorz Nowakowski
@@ -28,6 +30,9 @@ public class Person {
     private int thymeleaf;
     private int git;
     private int checkbox;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "person")
+    private Set<Items> items = new HashSet<Items>();
 
 
     public Person() {
@@ -152,5 +157,13 @@ public class Person {
 
     public void setCheckbox(int checkbox) {
         this.checkbox = checkbox;
+    }
+
+    public Set<Items> getItems() {
+        return items;
+    }
+
+    public void setItems(Set<Items> items) {
+        this.items = items;
     }
 }

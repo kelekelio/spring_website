@@ -116,8 +116,7 @@
                                     </div>
                                       
                                        <div class="form-group row">
-                                        <label for="checkb" class="col-2 col-form-label">Czy kursant opanował
-                                        jakieś technologie ?</label>
+                                        <label for="checkb" class="col-2 col-form-label">Czy kursant opanował jakieś technologie ?</label>
                                         <div class="col-1">
                                             <label class="radio-inline">    <input type="radio" data-toggle="collapse" data-target=".collapseOne:not(.show)"    id="checkb" name="checkbox" value="1" <c:if test="${person.checkbox eq '1'}">checked</c:if> >TAK</label>
                                         </div>
