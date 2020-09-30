@@ -83,46 +83,46 @@
         <div class="container-fluid">
 
                    <!-- Content Row -->
+            <form name="send" method="post" action='<c:url value="/editPerson2/${person.id}"/>'>
                     <div class="row">
                         <div class="col-xl-12 col-md-12 mb-12">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <div class="form-group row">
-                                        <label for="firstName" class="col-2 col-form-label">Imię</label>
+                                        <label for="name" class="col-2 col-form-label">Imię</label>
                                         <div class="col-10">
-                                            <input class="form-control" type="text" value="Imię">
+                                            <input class="form-control" type="text" id="name" name="name" value="${person.name}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="lastName" class="col-2 col-form-label">Nazwisko</label>
                                         <div class="col-10">
-                                            <input class="form-control" type="text" value="Nazwisko">
+                                            <input class="form-control" type="text" id="lastName" name="lastName"  value="${person.lastName}">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="github" class="col-2 col-form-label">URL Git</label>
                                         <div class="col-10">
-                                            <input class="form-control" type="text" value="github">
+                                            <input class="form-control" type="text" id="github" name="github"  value="${person.github}">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="start" class="col-2 col-form-label">Od czego się zaczęło:</label>
                                         <div class="col-10">
-                                            <textarea class="form-control" rows="5">start</textarea>
+                                            <textarea class="form-control" rows="5" id="start" name="start"  >${person.start}</textarea>
                                         </div>
                                     </div>
                                       
                                        <div class="form-group row">
-                                        <label for="question" class="col-2 col-form-label">Czy kursant opanował
+                                        <label for="checkb" class="col-2 col-form-label">Czy kursant opanował
                                         jakieś technologie ?</label>
                                         <div class="col-1">
-                                           <label class="radio-inline"><input type="radio" id="question" name="checkbox" value="1">TAK
-                                            </label>
+                                            <label class="radio-inline">    <input type="radio" data-toggle="collapse" data-target=".collapseOne:not(.show)"    id="checkb" name="checkbox" value="1" <c:if test="${person.checkbox eq '1'}">checked</c:if> >TAK</label>
                                         </div>
                                         <div class="col-1">
-                                       <label class="radio-inline"><input type="radio" id="question" name="checkbox" value="0" checked>NIE</label>
+                                            <label class="radio-inline">    <input type="radio" data-toggle="collapse" data-target=".collapseOne.show"          id="checkb" name="checkbox" value="0" <c:if test="${person.checkbox eq '0'}">checked</c:if> >NIE</label>
                                        </div>
                                     </div>
 
@@ -133,62 +133,61 @@
 
                    
                      <!-- Content Row -->
-
-            <div class="col-xl-12 col-md-12 mb-12">
+            <div class="col-xl-12 col-md-12 mb-12 <c:if test="${person.checkbox eq '0'}">collapseOne panel-collapse collapse</c:if>  " >
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
 
                             <div class="row">
                             <div class="col-2">
-                            <label for="1" class="col-form-label">Java</label>
-                                <input class="form-control" type="text" value="%">
+                            <label for="java" class="col-form-label">Java</label>
+                                <input class="form-control" type="text" id="java"  name="java"  value="${person.java}">
                              </div>
 
 
                             <div class="col-2">
-                             <label for="1" class="col-form-label">Wzorce projektowe</label>
-                             <input class="form-control" type="text" value="%">
+                             <label for="bestpractice" class="col-form-label">Wzorce projektowe</label>
+                             <input class="form-control" type="text" id="bestpractice" name="bestpractice"  value="${person.bestpractice}">
                              </div>
 
 
                             <div class="col-2">
-                            <label for="1" class="col-form-label">TDD</label>
-                                <input class="form-control" type="text" value="%">
+                            <label for="tdd" class="col-form-label">TDD</label>
+                                <input class="form-control" type="text" id="tdd" name="tdd"  value="${person.tdd}">
                             </div>
 
 
                         <div class="col-2">
-                         <label for="1" class="col-form-label">Bazy danych SQL</label>
-                             <input class="form-control" type="text" value="%">
+                         <label for="question" class="col-form-label">Bazy danych SQL</label>
+                             <input class="form-control" type="text"  id="question" name="question"  value="${person.question}">
                              </div>
 
 
 
                             <div class="col-2">
-                            <label for="1" class="col-form-label">Hibernate JPA</label>
-                                <input class="form-control" type="text" value="%">
+                            <label for="hibernate" class="col-form-label">Hibernate JPA</label>
+                                <input class="form-control" type="text" id="hibernate" name="hibernate"  value="${person.hibernate}">
                             </div>
 
 
                             <div class="col-2">
-                            <label for="1" class="col-form-label">HTML_CSS</label>
-                             <input class="form-control" type="text" value="%">
+                            <label for="html" class="col-form-label">HTML_CSS</label>
+                             <input class="form-control" type="text" id="html" name="html"  value="${person.html}">
                              </div>
 
 
                             <div class="col-2">
-                            <label for="1" class="col-form-label">JSP</label>
-                                <input class="form-control" type="text" value="%">
+                            <label for="jsp" class="col-form-label">JSP</label>
+                                <input class="form-control" type="text" id="jsp" name="jsp"  value="${person.jsp}">
                             </div>
 
                            <div class="col-2">
-                            <label for="1" class="col-form-label">Thymeleaf</label>
-                                <input class="form-control" type="text" value="%">
+                            <label for="thymeleaf" class="col-form-label">Thymeleaf</label>
+                                <input class="form-control" type="text" id="thymeleaf"  name="thymeleaf" value="${person.thymeleaf}">
                             </div>
 
                             <div class="col-2">
-                            <label for="1" class="col-form-label">git</label>
-                                <input class="form-control" type="text" value="%">
+                            <label for="git" class="col-form-label">git</label>
+                                <input class="form-control" type="text" id="git"  name="git" value="${person.git}">
                             </div>
 
 
@@ -198,12 +197,13 @@
             </div>
             </div>
                     <input class="btn btn-success pull-left" type="submit" value="Zapisz zmiany" id="searchButton"></input>
-
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+                    Usuń
+                </button>
+            </form>
 
                     <!-- Button to Open the Modal -->
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
-                        Usuń
-                    </button>
+
                
                 <!-- The Modal -->
                 <div class="modal" id="myModal">
@@ -223,7 +223,9 @@
 
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
-                                    <input type="submit" class="btn btn-danger pull-left" value="Tak"/>
+                                    <form name="send" method="post" action='<c:url value="/editPerson3/${person.id}"/>'>
+                                        <input type="submit" class="btn btn-danger pull-left" value="Tak"/>
+                                    </form>
                                 </div>
 
                         </div>

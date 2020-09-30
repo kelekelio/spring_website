@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class Grade {
 
     @RequestMapping(value = {"/Grade"}, method = RequestMethod.GET )
-    public String index(Model model) {
+    public String grade(Model model) {
         return "grade";
     }
 

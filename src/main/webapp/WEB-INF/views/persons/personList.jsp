@@ -120,21 +120,18 @@
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                
+
+
+                                <c:forEach items="${person}" var="persons">
                                     <tr>
-                                        <td>Przykładowe Imię</td>
-                                        <td>Przykładowe Nazwisko</td>
-                                        <td><a href="" class="btn btn-info btn-circle">
-                                                                <i class="fas fa-info-circle"></i>
-                                                              </a></td>
-                                         <td>Start</td>
-                                        <td><a href="#" role="button" class="btn btn-success btn-circle" data-toggle="modal" data-target="#umiejetnosci"><i class="fas
-                                        fa-check"></i></a></td>
-                                       
-                                        <td><a href='#'
-                                               class="btn-right btn btn-primary" role="button">Edytuj</a>
-                                        </td>
+                                        <td>${persons.name}</td>
+                                        <td>${persons.lastName}</td>
+                                        <td><a target="_blank" href='<c:url value="${persons.github}"/>' class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
+                                        <td>${persons.start}</td>
+                                        <td><a href="#" role="button" class="btn btn-success btn-circle" data-toggle="modal" data-target="#umiejetnosci"><i class="fas fa-check"></i></a></td>
+                                        <td><a href='<c:url value="/editPerson/${persons.id}"/>' class="btn-right btn btn-primary" role="button">Edytuj</a></td>
                                     </tr>
+
                              
                                
                                
@@ -240,7 +237,8 @@
 
         </div>
     </div>
-</div>                 
+</div>
+                                </c:forEach>
            
                                 </tbody>
                             </table>
@@ -261,7 +259,7 @@
             <div class="card-header py-3">
 
 
-                <a href="#" class="btn btn-info btn-icon-split">
+                <a href="/addNewPerson" class="btn btn-info btn-icon-split">
                     <span class="icon text-white-50">
                       <i class="fas fa-info-circle"></i>
                     </span>

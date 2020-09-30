@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class Course {
 
     @RequestMapping(value = {"/Course"}, method = RequestMethod.GET )
-    public String index(Model model) {
+    public String course(Model model) {
         return "course";
     }
 
