@@ -14,9 +14,13 @@ public class Items {
 
     private String description;
 
+    private int testid;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "person_id")
     private Person person;
+
+    private String checkType; //checkboxes
 
 
     public Items() {
@@ -44,5 +48,22 @@ public class Items {
 
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+
+    public String getCheckType() {
+        return checkType;
+    }
+
+    public void setCheckType(String checkType) {
+        this.checkType = checkType;
+    }
+
+    public int getTestid() {
+        return testid;
+    }
+
+    public void setTestid(int testid) {
+        this.testid = testid;
     }
 }

@@ -96,14 +96,11 @@
 <div class="form-group row">
     <label for="name" class="col-2 col-form-label">Wybierz kursanta</label>
     <div class="col-10">
-  <select class="form-control" id="sel1">
+  <select class="form-control" id="sel1" name="testid">
     <option hidden>wybierz</option>
       <c:forEach items="${person}" var="ppl">
-          <option name="person_id" value="1" >${ppl.name}</option>
+          <option value="${ppl.id}" >${ppl.name} ${ppl.lastName}</option>
       </c:forEach>
-          <option name="person_id" value="1" >1</option>
-          <option name="person_id" value="2" >2</option>
-          <option name="person_id" value="3" >3</option>
   </select>
     </div>
 </div>                     
@@ -140,23 +137,23 @@
                                     <div class="col-md-9 col-sm-9 col-xs-9">
                                     <div class="row">
                                     <div class="col-sm-2">
-                                    <label class="radio-inline"><input type="radio" value="border-left-success" name="checkbox">
+                                    <label class="radio-inline"><input type="radio" value="border-left-success" name="checkType">
                                     <i class="btn btn-success btn-circle btn-sm" ></i> poziom junior</label>
                                     </div>
                                     <div class="col-sm-2">
-                                    <label class="radio-inline"><input type="radio" value="border-left-info" name="checkbox">
+                                    <label class="radio-inline"><input type="radio" value="border-left-info" name="checkType">
                                     <i class="btn btn-info btn-circle btn-sm" ></i> poziom junior+</label>
                                     </div>
                                     <div class="col-sm-2">
-                                    <label class="radio-inline"><input type="radio" value="border-left-secondary" name="checkbox">
+                                    <label class="radio-inline"><input type="radio" value="border-left-secondary" name="checkType">
                                     <i class="btn btn-secondary btn-circle btn-sm" ></i> poziom mid</label>
                                     </div>
                                     <div class="col-sm-2">
-                                    <label class="radio-inline"><input type="radio" value="border-left-primary" name="checkbox">
+                                    <label class="radio-inline"><input type="radio" value="border-left-primary" name="checkType">
                                     <i class="btn btn-primary btn-circle btn-sm" ></i> poziom mid+</label>
                                     </div>
                                     <div class="col-sm-2">
-                                        <label class="radio-inline"><input type="radio" value="border-left-danger" name="checkbox">
+                                        <label class="radio-inline"><input type="radio" value="border-left-danger" name="checkType">
                                             <i class="btn btn-danger btn-circle btn-sm" ></i> poziom senior</label>
                                     </div>
 

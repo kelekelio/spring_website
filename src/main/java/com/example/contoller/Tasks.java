@@ -22,6 +22,7 @@ public class Tasks {
 
     @Autowired
     ItemsRepository itemsRepository;
+    @Autowired
     PersonRepository personRepository;
 
     // display tasks
@@ -51,6 +52,11 @@ public class Tasks {
     // add new task
     @RequestMapping(value = {"/addTask2"}, method = RequestMethod.POST )
     public RedirectView postTask(@ModelAttribute Items newTask) {
+
+
+
+        Person person = personRepository.findById((long) newTask.getTestid());
+        newTask.setPerson(person);
 
         itemsRepository.save(newTask);
         return new RedirectView("/Tasks");
