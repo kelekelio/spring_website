@@ -2,14 +2,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:useBean id="now" class="java.util.Date"/>
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@include file="dynamic/css.jspf"%>
+<%@include file="../dynamic/css.jspf"%>
 
 
 <body id="page-top">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-  <%@include file="dynamic/navigationMain.jspf"%>
+  <%@include file="../dynamic/navigationMain.jspf"%>
 
 
 
@@ -150,62 +150,18 @@
 
 
                 <div class="col-lg-10">
-<c:forEach items="${items}" var="item">
-    <div class="card mb-4 py-3 border-left-primary">
+<c:forEach items="${tasks}" var="task">
+    <a href="<c:url value="/editTask/${task.id}"/>">
+    <div class="card mb-4 py-3 ${task.color}">
         <div class="card-body">
-            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">${item.person.name}
-                | <strong>Dodano:</strong> 2020-07-09 | <strong>Deadline:</strong> 2020-07-09</div>
-            ${item.description}
+            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">${task.person.name} ${task.person.lastName}
+                | <strong>Dodano:</strong> ${task.creationDate} | <strong>Deadline:</strong> ${task.deadline}</div>
+            ${task.description}
         </div>
     </div>
+    </a>
 </c:forEach>
 
-                    <div class="card mb-4 py-3 border-left-primary">
-                        <div class="card-body">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Dominik Maciąg
-                                | <strong>Dodano:</strong> 2020-07-09 | <strong>Deadline:</strong> 2020-07-09</div>
-                            Treść taska jakaś dłuższa nie musi być krótka jako Lorem ipsum to pisze aby sprawdzić jak
-                            będzie wyglądać
-                        </div>
-                    </div>
-
-
-                    <div class="card mb-4 py-3 border-left-secondary">
-                        <div class="card-body">
-                            Treść taska jakaś dłuższa nie musi być krótka jako Lorem ipsum to pisze aby sprawdzić jak
-                            będzie wyglądać
-                        </div>
-                    </div>
-
-                    <div class="card mb-4 py-3 border-left-success">
-                        <div class="card-body">
-                            .border-left-success
-                        </div>
-                    </div>
-
-                    <div class="card mb-4 py-3 border-left-info">
-                        <div class="card-body">
-                            .border-left-info
-                        </div>
-                    </div>
-
-                    <div class="card mb-4 py-3 border-left-warning">
-                        <div class="card-body">
-                            .border-left-warning
-                        </div>
-                    </div>
-
-                    <div class="card mb-4 py-3 border-left-danger">
-                        <div class="card-body">
-                            .border-left-danger
-                        </div>
-                    </div>
-
-                    <div class="card mb-4 py-3 border-left-dark">
-                        <div class="card-body">
-                            .border-left-dark
-                        </div>
-                    </div>
 
                 </div>
 
@@ -224,8 +180,8 @@
         </div>
         <!-- End of Main Content -->
 
-          <%@include file="dynamic/board.jspf"%>
-          <%@include file="dynamic/js.jspf"%>
+          <%@include file="../dynamic/board.jspf"%>
+          <%@include file="../dynamic/js.jspf"%>
 </body>
 
 </html>

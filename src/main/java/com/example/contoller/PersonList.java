@@ -61,9 +61,7 @@ public class PersonList {
 
     @RequestMapping(value = {"/editPerson3/{id}"}, method = RequestMethod.POST)
     public RedirectView deleteEditPerson(@ModelAttribute Person editPerson, @PathVariable("id") Long id) {
-
         personRepository.delete(id);
-
         return new RedirectView("/personList");
     }
 

@@ -40,7 +40,7 @@
 
     <!-- Nav Item - Tasks -->
     <li class="nav-item">
-        <a class="nav-link" href='<c:url value="Tasks"/>'>
+        <a class="nav-link" href='<c:url value="/Tasks"/>'>
             <i class="fas fa-clipboard-list"></i>
             <span>Taski</span></a>
     </li>

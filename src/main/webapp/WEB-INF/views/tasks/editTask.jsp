@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:useBean id="now" class="java.util.Date"/>
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@include file="dynamic/css.jspf"%>
+<%@include file="../dynamic/css.jspf"%>
 
 
 <body id="page-top">
@@ -10,7 +10,7 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-      <%@include file="dynamic/navigationMain.jspf"%>
+      <%@include file="../dynamic/navigationMain.jspf"%>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -82,7 +82,7 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-<form name="send" method="post" action='<c:url value="/addTask2"/>'>
+<form name="send" method="post" action='<c:url value="/editTaskSave/${task.id}"/>' >
         <div class="container-fluid">
 
                     <!-- Content Row -->
@@ -90,27 +90,27 @@
                         <div class="col-xl-12 col-md-12 mb-12">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                   
-                                   
+
+
                                    
 <div class="form-group row">
     <label for="name" class="col-2 col-form-label">Wybierz kursanta</label>
     <div class="col-10">
-  <select class="form-control" id="sel1" name="testid">
-    <option hidden>wybierz</option>
+  <select class="form-control" id="person.id" name="person.id">
+    <option hidden>${task.person.name} ${task.person.lastName}</option>
       <c:forEach items="${person}" var="ppl">
-          <option value="${ppl.id}" >${ppl.name} ${ppl.lastName}</option>
+      <option id="name" value="${ppl.id}">${ppl.name} ${ppl.lastName}</option>
       </c:forEach>
   </select>
     </div>
 </div>                     
                                    
                                    
-                                   
+
                                     <div class="form-group row">
-                                        <label for="name" class="col-2 col-form-label">Deadline</label>
+                                        <label for="deadline" class="col-2 col-form-label">Deadline</label>
                                         <div class="col-10">
-                                            <input class="form-control" type="text" placeholder="">
+                                            <input class="form-control" type="text" placeholder="" id="deadline">
                                         </div>
                             </div>
                           
@@ -118,7 +118,7 @@
                             <div class="form-group row">
                                 <label for="start" class="col-2 col-form-label">Tresć zadania:</label>
                                 <div class="col-10">
-                                <textarea class="form-control" rows="5" id="start" placeholder="tutaj opisz zadanie..." name="description"></textarea>
+                                <textarea class="form-control" rows="5" id="start" placeholder="tutaj opisz zadanie..." name="description">${task.description}</textarea>
                                 </div>
                             </div>
 
@@ -128,7 +128,8 @@
                         </div>
                     </div>
                     
-                    
+
+
        
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
@@ -137,23 +138,24 @@
                                     <div class="col-md-9 col-sm-9 col-xs-9">
                                     <div class="row">
                                     <div class="col-sm-2">
-                                    <label class="radio-inline"><input type="radio" value="border-left-success" name="checkType">
+                                    <label class="radio-inline">
+                                        <input type="radio" value="border-left-success" name="color" <c:if test="${task.color eq 'border-left-success'}">checked</c:if>>
                                     <i class="btn btn-success btn-circle btn-sm" ></i> poziom junior</label>
                                     </div>
                                     <div class="col-sm-2">
-                                    <label class="radio-inline"><input type="radio" value="border-left-info" name="checkType">
+                                    <label class="radio-inline"><input type="radio" value="border-left-info" name="color" <c:if test="${task.color eq 'border-left-info'}">checked</c:if>>
                                     <i class="btn btn-info btn-circle btn-sm" ></i> poziom junior+</label>
                                     </div>
                                     <div class="col-sm-2">
-                                    <label class="radio-inline"><input type="radio" value="border-left-secondary" name="checkType">
+                                    <label class="radio-inline"><input type="radio" value="border-left-secondary" name="color" <c:if test="${task.color eq 'border-left-secondary'}">checked</c:if>>
                                     <i class="btn btn-secondary btn-circle btn-sm" ></i> poziom mid</label>
                                     </div>
                                     <div class="col-sm-2">
-                                    <label class="radio-inline"><input type="radio" value="border-left-primary" name="checkType">
+                                    <label class="radio-inline"><input type="radio" value="border-left-primary" name="color" <c:if test="${task.color eq 'border-left-primary'}">checked</c:if>>
                                     <i class="btn btn-primary btn-circle btn-sm" ></i> poziom mid+</label>
                                     </div>
                                     <div class="col-sm-2">
-                                        <label class="radio-inline"><input type="radio" value="border-left-danger" name="checkType">
+                                        <label class="radio-inline"><input type="radio" value="border-left-danger" name="color" <c:if test="${task.color eq 'border-left-danger'}">checked</c:if>>
                                             <i class="btn btn-danger btn-circle btn-sm" ></i> poziom senior</label>
                                     </div>
 
@@ -167,19 +169,55 @@
                     
                     
  <input class="btn btn-success pull-left" type="submit" value="Wyślij" id="searchButton"></input>
-         
-
-    
-
         </div>
 </form>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+                Usuń
+            </button>
+
+
+
+          <!-- The Modal -->
+          <div class="modal" id="myModal">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+
+                      <!-- Modal Header -->
+                      <div class="modal-header">
+                          <h4 class="modal-title">Czy na pewno chcesz usunąć osobę ?</h4>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+
+                      <!-- Modal body -->
+                      <div class="modal-body">
+                          Jeżeli usuniesz to już nie będzie odwrotu
+                      </div>
+
+                      <!-- Modal footer -->
+                      <div class="modal-footer">
+                          <form name="send" method="post" action='<c:url value="/deleteTask/${task.id}"/>'>
+                              <input type="submit" class="btn btn-danger pull-left" value="Tak"/>
+                          </form>
+                      </div>
+
+                  </div>
+
+              </div>
+          </div>
+
+        </div>
+
+
+
+          <!-- The Modal -->
+
         <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
 
-        <%@include file="dynamic/board.jspf"%>
-        <%@include file="dynamic/js.jspf"%>
+        <%@include file="../dynamic/board.jspf"%>
+        <%@include file="../dynamic/js.jspf"%>
 </body>
 
 </html>

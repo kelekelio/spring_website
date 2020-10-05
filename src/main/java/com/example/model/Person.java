@@ -32,12 +32,8 @@ public class Person {
     private int checkbox;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "person")
-    private Set<Items> items = new HashSet<Items>();
+    private Set<Tasks> tasks = new HashSet<Tasks>();
 
-
-    public Person() {
-
-    }
 
     public Long getId() {
         return id;
@@ -159,11 +155,11 @@ public class Person {
         this.checkbox = checkbox;
     }
 
-    public Set<Items> getItems() {
-        return items;
+    public Set<Tasks> getTasks() {
+        return tasks;
     }
 
-    public void setItems(Set<Items> items) {
-        this.items = items;
+    public void setTasks(Set<Tasks> tasks) {
+        this.tasks = tasks;
     }
 }
