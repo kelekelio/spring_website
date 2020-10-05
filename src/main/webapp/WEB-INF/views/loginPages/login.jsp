@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<html lang="pl">
-
-<head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>JAVARZ - Login</title>
-
-  <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-  <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
-</head>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<jsp:useBean id="now" class="java.util.Date"/>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@include file="../dynamic/css.jspf"%>
 
 <body class="bg-gradient-primary">
 
@@ -39,12 +23,12 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Witaj !</h1>
                   </div>
-                  <form class="user">
+                  <form class="user" name="send" method="post" action='<c:url value="/login"/>'>
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Wprowadź swój adres Email...">
+                      <input type="text" name="username" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Wprowadź swój adres Email...">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Hasło">
+                      <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Hasło">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
@@ -52,9 +36,8 @@
                         <label class="custom-control-label" for="customCheck">Zapamiętaj mnie</label>
                       </div>
                     </div>
-                    <a href="../index.jsp" class="btn btn-primary btn-user btn-block">
-                      Login
-                    </a>
+
+                    <input class="btn btn-primary btn-user btn-block" type="submit" value="zaloguj">
                     <hr>
                   
                   </form>

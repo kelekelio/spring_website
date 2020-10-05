@@ -97,7 +97,7 @@
     <label for="name" class="col-2 col-form-label">Wybierz kursanta</label>
     <div class="col-10">
   <select class="form-control" id="person.id" name="person.id">
-    <option hidden>${task.person.name} ${task.person.lastName}</option>
+    <option value="${task.person.id}" hidden>${task.person.name} ${task.person.lastName}</option>
       <c:forEach items="${person}" var="ppl">
       <option id="name" value="${ppl.id}">${ppl.name} ${ppl.lastName}</option>
       </c:forEach>
@@ -169,11 +169,12 @@
                     
                     
  <input class="btn btn-success pull-left" type="submit" value="Wyślij" id="searchButton"></input>
-        </div>
-</form>
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
                 Usuń
             </button>
+        </div>
+</form>
+
 
 
 

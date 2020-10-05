@@ -34,7 +34,9 @@
             <div class="modal-body">Wybierz „Wyloguj” poniżej, jeśli chcesz zakończyć bieżącą sesję.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Anuluj</button>
-                <a class="btn btn-primary" href='<c:url value="#"/>'>Wyloguj</a>
+                <form name="send" method="post" action='<c:url value="/logout"/>'>
+                    <input type="submit" class="btn btn-danger pull-left" value="Wyloguj"/>
+                </form>
             </div>
         </div>
     </div>
